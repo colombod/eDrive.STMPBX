@@ -1,0 +1,6 @@
+[submodule "DueTimer"]
+	path = DueTimer
+	url = https://colombod@github.com/colombod/DueTimer.git
+[submodule "OSC"]
+	path = OSC
+	url = https://colombod@github.com/colombod/OSC.git
