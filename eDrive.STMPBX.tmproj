@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>eDrive/library.properties</string>
+	<string>eDrive/src/edrive.hpp</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -20,16 +20,28 @@
 			<key>filename</key>
 			<string>eDrive/library.properties</string>
 			<key>lastUsed</key>
-			<date>2013-07-07T12:55:42Z</date>
-			<key>selected</key>
-			<true/>
+			<date>2013-07-07T12:59:13Z</date>
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
 	<integer>200</integer>
 	<key>metaData</key>
 	<dict>
-		<key>eDrive/library.properties</key>
+		<key>eDrive/src/eDrive.cpp</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>22</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>eDrive/src/edrive.hpp</key>
 		<dict>
 			<key>caret</key>
 			<dict>
@@ -46,11 +58,12 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>eDrive/library.properties</string>
+		<string>eDrive/src/eDrive.cpp</string>
+		<string>eDrive/src/edrive.hpp</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{10, 4}, {1710, 1174}}</string>
+	<string>{{-1893, 120}, {1710, 1080}}</string>
 </dict>
 </plist>
