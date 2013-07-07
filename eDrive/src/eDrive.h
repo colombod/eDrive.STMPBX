@@ -32,6 +32,9 @@ namespace  mUBreeze{
             std::queue<OscMessage*> m_inbox;
             std::queue<OscMessage*> m_outbox;
 			void ResetBuffers();
+            
+            OscMessage* Dequeue(std::queue<OscMessage*>& storage);
+            void Enqueue(OscMessage* message, std::queue<OscMessage*>& storage);
         protected:
             /*
 			 Override for sutom initialisation step
@@ -67,6 +70,15 @@ namespace  mUBreeze{
             float* const GetIncomingSampleBuffer();
             
             const float* const GetOutgoingSampleBuffer();
+            
+            OscMessage* DequeueFromOutbox();
+            
+            
+            OscMessage* DequeueFromInbox();
+            
+            void EnqueueOnInbox(OscMessage* message);
+            
+            void EnqueueOnOutbox(OscMessage* message);
 		};
 	}
 	

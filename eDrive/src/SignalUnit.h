@@ -9,13 +9,30 @@
 #ifndef eDrive_SignalUnit_h
 #define eDrive_SignalUnit_h
 
-namespace mUbreeze{
+namespace mUBreeze{
     namespace eDrive{
+        class Engine;
+        
+        /*
+         Base class to implement
+         */
         class SignalUnit{
+        public:
+            SignalUnit();
+            virtual ~SignalUnit();
             
-            public SignalUnit();
-            virtual public ~SignalUnit();
-        }
+            void Initialise(Engine* engine);
+            
+        protected:
+            /*
+             Override for custom initialisation
+             */
+            void OnInitialising();
+        private:
+            Engine* m_engine;
+            
+            
+        };
     }
 }
 

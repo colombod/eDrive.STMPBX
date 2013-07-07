@@ -1,5 +1,6 @@
 #include "eDrive.h"
 #include "OscMessage.h"
+#include "SignalUnit.h"
 
 
 namespace mUBreeze{
@@ -70,5 +71,37 @@ namespace mUBreeze{
                 m_ptrOututgoingSamples = new float[m_channelCount];
 			}
 		}
+        
+        OscMessage* Engine::DequeueFromInbox(){
+            return Dequeue(m_inbox);
+        }
+        
+        OscMessage* Engine::DequeueFromOutbox(){
+            return Dequeue(m_outbox);
+        }
+        
+        void Engine::EnqueueOnInbox(OscMessage *message){
+            Enqueue(message, m_inbox);
+        }
+        
+        void Engine::EnqueueOnOutbox(OscMessage* message)
+        {
+            Enqueue(message,m_outbox);
+        }
+        OscMessage* Engine::Dequeue(std::queue<OscMessage *> &storage)  {
+            OscMessage* ret = NULL;
+            if(!m_inbox.empty()){
+                ret = storage.front();
+                storage.pop();
+            }
+            return ret;
+        }
+        
+        void Engine::Enqueue(OscMessage* message, std::queue<OscMessage *>& storage){
+            if(message)
+            {
+             storage.push(message);   
+            }
+        }
 	}
 }
