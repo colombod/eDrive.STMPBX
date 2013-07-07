@@ -17,10 +17,18 @@
 #ifndef eDrive_h
 #define eDrive_h
 #include <queue>
+#include <string>
+
 
 namespace  mUBreeze{  
 	namespace  eDrive{
+        
+        
         class OscMessage;
+        class SignalUnit;
+        
+        typedef SignalUnit* (*CreateSingalUnit)(void);
+        
 		class  Engine{  
 			
 		private:
@@ -35,6 +43,8 @@ namespace  mUBreeze{
             
             OscMessage* Dequeue(std::queue<OscMessage*>& storage);
             void Enqueue(OscMessage* message, std::queue<OscMessage*>& storage);
+           
+            
         protected:
             /*
 			 Override for sutom initialisation step
@@ -79,6 +89,9 @@ namespace  mUBreeze{
             void EnqueueOnInbox(OscMessage* message);
             
             void EnqueueOnOutbox(OscMessage* message);
+            
+            static void RegisterSignalUnit(const std::string id, CreateSingalUnit factoryMethod);
+            static SignalUnit* Create(const std::string id);
 		};
 	}
 	

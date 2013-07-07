@@ -1,11 +1,16 @@
 #include "eDrive.h"
 #include "OscMessage.h"
 #include "SignalUnit.h"
-
+#include <map>
 
 namespace mUBreeze{
 	namespace eDrive{
-
+        namespace SignalUnitFactory{
+        
+        typedef std::map<const std::string, CreateSingalUnit> Factory;
+        Factory s_factoryMap;
+        }
+        
 		// default constructor
 		Engine::Engine(){
             m_channelCount = 0;
@@ -18,6 +23,7 @@ namespace mUBreeze{
 			ResetBuffers();
             FlushInbox();
             FlushOutbox();
+            mUBreeze::eDrive::SignalUnitFactory::s_factoryMap.clear();
 		}
 
 		void Engine::Initialise(int samplingRate, int channelCount){
@@ -102,6 +108,23 @@ namespace mUBreeze{
             {
              storage.push(message);   
             }
+        }
+        
+        void Engine::RegisterSignalUnit(const std::string id, CreateSingalUnit factoryMethod){
+            if(factoryMethod)
+            {
+                mUBreeze::eDrive::SignalUnitFactory::s_factoryMap[id] = factoryMethod;
+            }
+        }
+        
+        SignalUnit* Engine::Create(const std::string id){
+            SignalUnit* ret = NULL;
+            SignalUnitFactory::Factory::iterator it = mUBreeze::eDrive::SignalUnitFactory::s_factoryMap.find(id);
+            if( it != mUBreeze::eDrive::SignalUnitFactory::s_factoryMap.end() )
+            {
+                ret = it->second();
+            }
+            return ret;
         }
 	}
 }
