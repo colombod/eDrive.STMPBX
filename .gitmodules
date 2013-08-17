@@ -4,9 +4,9 @@
 [submodule "OSC"]
 	path = OSC
 	url = https://colombod@github.com/colombod/OSC.git
-[submodule "eDriveDSP"]
-	path = eDriveDSP
-	url = https://colombod@github.com/colombod/eDriveDSP.git
 [submodule "eDriveOsc"]
 	path = eDriveOsc
 	url = https://colombod@github.com/colombod/eDriveOSC.git
+[submodule "eDriveDSP"]
+	path = eDriveDSP
+	url = https://colombod@github.com/colombod/eDriveDSP.git
